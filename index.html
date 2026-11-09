@@ -1,0 +1,1037 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#100817">
+<title>Our Little Universe ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Outfit:wght@300;400;600;700;800&display=swap');
+
+:root {
+  --pink:#ff77b7;
+  --purple:#bd9aff;
+  --dark:#100817;
+  --glass:rgba(255,255,255,.075);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:#fff5fb;font-family:Outfit,sans-serif;
+  background:radial-gradient(ellipse at 15% 10%,#49244e,transparent 40%),
+  radial-gradient(ellipse at 90% 65%,#361332,transparent 40%),var(--dark);
+  overflow-x:hidden
+}
+button,input{font:inherit}
+button{cursor:pointer}
+#sky{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.star{position:absolute;color:#fff;animation:twinkle 3s infinite alternate}
+@keyframes twinkle{to{opacity:.15;transform:scale(.6)}}
+.heart{position:absolute;bottom:-40px;animation:rise linear forwards}
+@keyframes rise{to{transform:translateY(-110vh) rotate(45deg);opacity:0}}
+.script{font-family:'Dancing Script',cursive;color:var(--pink)}
+.screen{position:relative;z-index:1}
+#lock{
+ min-height:100svh;display:grid;place-items:center;padding:24px;
+ text-align:center
+}
+.panel{
+ width:min(100%,470px);padding:35px 25px;border:1px solid #ffffff20;
+ border-radius:28px;background:var(--glass);backdrop-filter:blur(18px);
+ box-shadow:0 20px 80px #0003
+}
+.lock-icon{font-size:65px;animation:beat 1.7s infinite}
+@keyframes beat{50%{transform:scale(1.1)}}
+h1{font-size:clamp(39px,8vw,70px);line-height:1.1;margin:18px 0}
+h2{font-size:clamp(30px,6vw,48px);margin:0 0 15px}
+p{line-height:1.9;color:#e2ccdf}
+input{
+ width:100%;padding:15px;border-radius:30px;
+ background:#ffffff0b;color:white;border:1px solid #ffffff35;
+ outline:none;text-align:center;margin:12px 0
+}
+input:focus{border-color:var(--pink)}
+.btn{
+ border:1px solid #ffffff30;background:#ffffff0b;color:white;
+ padding:13px 21px;border-radius:30px;transition:.25s
+}
+.btn:hover{transform:translateY(-3px)}
+.primary{background:linear-gradient(110deg,#ffb7d9,#ff75b9);color:#38142a;border:0;font-weight:800}
+#main{display:none}
+nav{padding:20px 6%;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.logo{font-weight:800;color:#ffc2e0}
+nav small{color:#d8bdd4}
+.hero{
+ min-height:82svh;display:grid;place-items:center;text-align:center;
+ padding:55px 22px
+}
+.hero-inner{max-width:820px}
+.pill{border:1px solid #ffffff2b;border-radius:30px;padding:9px 15px;color:#ffd3e9;font-size:12px;letter-spacing:1.5px}
+.hero h1{font-size:clamp(48px,10vw,94px);letter-spacing:-2px}
+.hero p{max-width:570px;margin:0 auto}
+.buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:25px}
+section{padding:72px 6%}
+.heading{text-align:center;margin-bottom:35px}
+.heading p{max-width:580px;margin:10px auto}
+.card{
+ background:var(--glass);border:1px solid #ffffff18;
+ border-radius:25px;padding:clamp(23px,5vw,42px);
+ backdrop-filter:blur(14px)
+}
+.letter{max-width:760px;margin:auto;text-align:center}
+.letter p{line-height:2}
+.big{font-size:52px}
+.signature{font:30px 'Dancing Script',cursive;color:var(--pink)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1000px;margin:auto}
+.memory{padding:25px;transition:.3s}
+.memory:hover{transform:translateY(-6px);border-color:#ff83c366}
+.memory .emoji{font-size:35px}
+.memory h3{margin:13px 0 8px}
+.memory p{font-size:14px;margin:0}
+.gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:900px;margin:auto}
+.gift{
+ text-align:center;min-height:180px;display:grid;place-items:center;
+ align-content:center;gap:12px
+}
+.gift button{font-size:55px;background:none;border:0;transition:.25s}
+.gift button:hover{transform:scale(1.15) rotate(-5deg)}
+.reveal{margin:18px auto 0;max-width:700px;text-align:center;animation:appear .5s}
+@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+.hidden{display:none!important}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;max-width:850px;margin:auto}
+.photo{
+ min-height:160px;display:grid;place-items:center;text-align:center;
+ padding:12px;border:1px dashed #ffffff50;border-radius:18px;
+ background:#ffffff08;overflow:hidden
+}
+.photo img{width:100%;height:220px;object-fit:cover;border-radius:12px}
+.photo input{font-size:11px;padding:8px}
+.cake{text-align:center;font-size:95px;margin:22px 0}
+.center{text-align:center}
+footer{text-align:center;padding:35px 20px 55px;color:#c9aec5;line-height:2}
+#toast{
+ position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+ z-index:10;background:#ffd5e9;color:#371329;padding:13px 20px;
+ border-radius:30px;text-align:center;width:max-content;max-width:90%
+}
+.confetti{position:fixed;top:-20px;z-index:20;pointer-events:none;animation:fall 3s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(700deg);opacity:0}}
+@media(max-width:680px){
+ .grid,.gifts,.photos{grid-template-columns:1fr}
+ .memory{min-height:auto}
+ nav{padding:18px 5%}
+ section{padding:55px 5%}
+ .photo img{height:260px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<div id="sky"></div>
+
+<!-- SECRET WELCOME -->
+<div id="lock" class="screen">
+ <div class="panel">
+  <div class="lock-icon">💌</div>
+  <div class="script" style="font-size:30px">A little surprise...</div>
+  <h1>Made just for <span class="script" id="lockName">You</span></h1>
+  <p>Someone has created a tiny universe filled with love, just for you. Are you ready? ✨</p>
+  <input id="password" type="password" placeholder="Enter your secret word ❤️" autocomplete="off">
+  <button class="btn primary" style="width:100%" onclick="unlock()">Unlock My Surprise ✨</button>
+  <p style="font-size:12px">Hint: It's your special word together 💗</p>
+ </div>
+</div>
+
+<!-- MAIN WEBSITE -->
+<div id="main" class="screen">
+ <nav>
+  <div class="logo">OUR UNIVERSE ♡</div>
+  <small>Made with love, only for you</small>
+ </nav>
+
+ <header class="hero">
+  <div class="hero-inner">
+   <span class="pill">✦ TODAY IS ALL ABOUT YOU ✦</span>
+   <h1>Happy Birthday,<br><span class="script" id="heroName">My Princess</span> ❤️</h1>
+   <p>
+    Out of all the beautiful things in this world, your existence is
+    one of my favourites. Today, every star shines a little brighter for you.
+   </p>
+   <div class="buttons">
+    <button class="btn primary" onclick="go('letter')">Read My Heart 💌</button>
+    <button class="btn" onclick="celebrate()">Make Some Magic ✨</button>
+   </div>
+   <div style="font-size:25px;margin-top:40px;opacity:.7">↓</div>
+  </div>
+ </header>
+
+ <section id="letter">
+  <div class="heading">
+   <h2>A letter from my <span class="script">heart</span></h2>
+   <p>Not just words. A little piece of my heart, written for you.</p>
+  </div>
+  <div class="card letter">
+   <div class="big">💗</div>
+   <h2 class="script">My favourite human...</h2>
+   <p id="letterText">
+    Happy Birthday, meri jaan! ❤️<br><br>
+    I wish I could pause time today, hold your hand and remind you of
+    every little reason why you are so precious.
+    You deserve a happiness that stays, a love that respects you,
+    and dreams that come true one by one.<br><br>
+    I may not always find the perfect words, but I hope my efforts
+    remind you that you matter. Your smile, your laughter, your
+    little habits and the person you are make you wonderfully unique.<br><br>
+    May this new chapter bring you confidence, peace, adventure,
+    success and a thousand reasons to smile.
+    Keep shining, keep dreaming, and never forget how special you are.<br><br>
+    If I could give you one birthday gift that lasts forever,
+    it would be the ability to see yourself through my eyes.
+    Then you would understand just how amazing you are. 🥹
+   </p>
+   <div class="signature" id="letterSignature">With love, always ❤️</div>
+  </div>
+ </section>
+
+ <section>
+  <div class="heading">
+   <h2>Things I adore <span class="script">about you</span></h2>
+   <p>Little things that make you, YOU. 🌷</p>
+  </div>
+  <div class="grid">
+   <div class="card memory"><div class="emoji">🌸</div><h3>Your heart</h3><p>Your kindness makes ordinary moments feel special.</p></div>
+   <div class="card memory"><div class="emoji">🥹</div><h3>Your smile</h3><p>A smile that can make even a difficult day feel lighter.</p></div>
+   <div class="card memory"><div class="emoji">🌙</div><h3>Our conversations</h3><p>From serious talks to the silliest jokes, every little moment counts.</p></div>
+   <div class="card memory"><div class="emoji">🧸</div><h3>Your cute side</h3><p>The little things you do without even realizing how adorable they are.</p></div>
+   <div class="card memory"><div class="emoji">✨</div><h3>Your dreams</h3><p>I hope you always feel brave enough to chase everything you want.</p></div>
+   <div class="card memory"><div class="emoji">💖</div><h3>The real you</h3><p>You never need to be anyone else to be worthy of love.</p></div>
+  </div>
+ </section>
+
+ <!-- THREE INTERACTIVE GIFTS -->
+ <section id="gifts">
+  <div class="heading">
+   <h2>Choose a <span class="script">surprise</span> 🎁</h2>
+   <p>Three little gifts. Open whichever one your heart chooses.</p>
+  </div>
+  <div class="gifts">
+   <div class="card gift">
+    <button onclick="openGift(1)" aria-label="Open love gift">💝</button>
+    <strong>Gift No. 1</strong><small>A secret from my heart</small>
+   </div>
+   <div class="card gift">
+    <button onclick="openGift(2)" aria-label="Open future gift">🌠</button>
+    <strong>Gift No. 2</strong><small>A wish for your future</small>
+   </div>
+   <div class="card gift">
+    <button onclick="openGift(3)" aria-label="Open hug gift">🧸</button>
+    <strong>Gift No. 3</strong><small>A virtual hug</small>
+   </div>
+  </div>
+  <div id="giftReveal" class="card reveal hidden">
+   <div class="big" id="giftEmoji">💖</div>
+   <h2 class="script" id="giftTitle">A little secret</h2>
+   <p id="giftMessage"></p>
+   <button class="btn" onclick="closeGift()">Keep it in my heart ❤️</button>
+  </div>
+ </section>
+
+ <!-- PERSONAL PHOTO GALLERY -->
+ <section id="memories">
+  <div class="heading">
+   <h2>Our little <span class="script">memories</span> 📸</h2>
+   <p>Add your favourite photos here. They stay in this browser session only.</p>
+  </div>
+
+<!-- CINEMATIC LOVE PHOTO GALLERY ❤️ -->
+
+
+<!-- ADVANCED LOVE STORY GALLERY ❤️ -->
+<section class="love-universe">
+  <div class="universe-bg"></div>
+  <div class="universe-stars">✦　·　✧　·　✦　·　✧</div>
+
+  <header class="universe-header">
+    <span class="eyebrow">A STORY WRITTEN IN THE STARS</span>
+    <h1>My World, <span>My Love.</span></h1>
+    <p>Every moment with you becomes a memory I want to keep forever.</p>
+  </header>
+
+  <div class="gallery-layout">
+    <div class="side-note left-note">YOU ARE MY<br>FAVOURITE<br>CHAPTER.</div>
+
+    <div class="hero-photo-wrap">
+      <div class="ring ring-a"></div>
+      <div class="ring ring-b"></div>
+
+      <div class="hero-photo" id="heroPhoto">
+        <img id="mainLovePhoto" src="https://instasize.com/api/image/975f6c4a3f8e649e8175b53a98688f3ac0c146585af9a38d7b9e203ce1e0f543.jpeg">"
+             alt="My favourite person">
+        <div class="photo-shade"></div>
+        <div class="hero-label">
+          <span>OUR LITTLE UNIVERSE</span>
+          <h2>Forever starts<br>with you. ♡</h2>
+        </div>
+        <span class="photo-number">01 / 04</span>
+      </div>
+
+      <span class="float-heart fh1">♥</span>
+      <span class="float-heart fh2">✧</span>
+      <span class="float-heart fh3">♡</span>
+    </div>
+  </div>
+</section>
+
+<style>
+.love-universe {
+  --pink: #ff91c8;
+  --muted: #cbb5d5;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 52px 18px 38px;
+  border-radius: 26px;
+  background: #100b1b;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.universe-bg {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 43%, #63234c88, transparent 47%),
+    radial-gradient(ellipse at 10% 90%, #34275c66, transparent 45%),
+    linear-gradient(160deg, #100b1b, #1c1027 50%, #100b1b);
+}
+
+.universe-stars {
+  color: #ffc4e5;
+  letter-spacing: 9px;
+  opacity: .55;
+  font-size: 14px;
+  animation: starsGlow 3s ease-in-out infinite alternate;
+}
+
+.universe-header {
+  position: relative;
+  max-width: 520px;
+  margin: 18px auto 0;
+}
+
+.eyebrow {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--pink);
+}
+
+.universe-header h1 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(32px, 7vw, 54px);
+  line-height: 1.12;
+  margin: 17px 0 13px;
+}
+
+.universe-header h1 span {
+  display: block;
+  font-style: italic;
+  color: var(--pink);
+}
+
+.universe-header p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+  max-width: 340px;
+  margin: auto;
+}
+
+.gallery-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(7px, 3vw, 28px);
+  margin: 36px auto 25px;
+  max-width: 720px;
+}
+
+.side-note {
+  writing-mode: vertical-rl;
+  color: #d4a6cb;
+  font-size: 8px;
+  letter-spacing: 3px;
+  line-height: 2;
+  opacity: .8;
+}
+
+.left-note {
+  transform: rotate(180deg);
+}
+
+.hero-photo-wrap {
+  width: min(290px, 66vw);
+  aspect-ratio: 3 / 4;
+  position: relative;
+  flex-shrink: 0;
+  perspective: 1000px;
+}
+
+.ring {
+  position: absolute;
+  inset: -13px;
+  border: 1px solid #ff9bd755;
+  border-radius: 48% 52% 46% 54%;
+  pointer-events: none;
+}
+
+.ring-a {
+  animation: ringSpin 17s linear infinite;
+}
+
+.ring-b {
+  inset: -23px;
+  border-style: dashed;
+  border-color: #b58cff44;
+  animation: ringSpin 24s linear infinite reverse;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 145px 145px 12px 12px;
+  border: 1px solid #ffb9df99;
+  background: #29172e;
+  box-shadow: 0 0 40px #ff55ad24, 0 25px 65px #0008;
+  transform-style: preserve-3d;
+  transition: transform .5s ease;
+}
+
+.hero-photo:hover {
+  transform: rotateY(-4deg) rotateX(2deg) scale(1.02);
+}
+
+.hero-photo > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity .3s ease, transform .8s ease;
+}
+
+.hero-photo:hover > img {
+  transform: scale(1.05);
+}
+
+.photo-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg, transparent 35%, #10081722 53%, #100817ed 100%
+  );
+  pointer-events: none;
+}
+
+.hero-label {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 20px;
+  text-align: left;
+}
+
+.hero-label > span {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #ffc3e3;
+}
+
+.hero-label h2 {
+  margin: 9px 0 0;
+  font: italic 26px/1.12 Georgia, serif;
+  text-shadow: 0 3px 20px #000;
+}
+
+.photo-number {
+  position: absolute;
+  top: 16px;
+  right: 14px;
+  padding: 7px 9px;
+  border: 1px solid #ffffff66;
+  border-radius: 20px;
+  background: #140b1c55;
+  backdrop-filter: blur(8px);
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.float-heart {
+  position: absolute;
+  z-index: 2;
+  color: #ffb4df;
+  text-shadow: 0 0 17px #ff51bd;
+  animation: floatHeart 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.fh1 {
+  top: 14%;
+  left: -22px;
+  font-size: 23px;
+}
+
+.fh2 {
+  top: 47%;
+  right: -28px;
+  font-size: 29px;
+  animation-delay: .7s;
+}
+
+.fh3 {
+  bottom: 10%;
+  left: -24px;
+  font-size: 25px;
+  animation-delay: 1.3s;
+}
+
+.gallery-bottom {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.gallery-quote {
+  margin: 30px auto 25px;
+}
+
+.quote-mark {
+  color: var(--pink);
+  font: 50px Georgia, serif;
+  height: 30px;
+  display: block;
+}
+
+.gallery-quote p {
+  color: #f7e7f3;
+  font: italic 15px/1.7 Georgia, serif;
+}
+
+.quote-author {
+  color: #bca4c5;
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.photo-strip {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px auto;
+}
+
+.photo-thumb {
+  padding: 3px;
+  width: 58px;
+  height: 70px;
+  border: 1px solid #7c5278;
+  background: #24172e;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: .55;
+  transition: .3s;
+}
+
+.photo-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.photo-thumb.active,
+.photo-thumb:hover {
+  opacity: 1;
+  border-color: #ff9bce;
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #ff71bd44;
+}
+
+.gallery-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 23px;
+}
+
+.gallery-controls button {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #e6a2d866;
+  background: #ffffff08;
+  color: #ffe1f1;
+  cursor: pointer;
+  font-size: 18px;
+  transition: .2s;
+}
+
+.gallery-controls button:hover {
+  background: #e96cae33;
+  transform: scale(1.08);
+}
+
+#memoryCounter {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #d8b8d4;
+}
+
+@keyframes ringSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes floatHeart {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes starsGlow {
+  from { opacity: .3; }
+  to { opacity: .9; }
+}
+
+@media (max-width: 380px) {
+  .side-note { font-size: 7px; letter-spacing: 2px; }
+  .photo-thumb { width: 49px; height: 62px; }
+  .gallery-layout { gap: 5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring, .float-heart, .universe-stars {
+    animation: none;
+  }
+}
+</style>
+
+<script>
+(() => {
+  const photos = [
+    "love.jpg",
+    "love2.jpg",
+    "love3.jpg",
+    "love4.jpg"
+  ];
+
+  const main = document.getElementById("mainLovePhoto");
+  const hero = document.getElementById("heroPhoto");
+  const number = document.querySelector(".photo-number");
+  const counter = document.getElementById("memoryCounter");
+  const thumbs = [...document.querySelectorAll(".photo-thumb")];
+
+  let current = 0;
+
+  function showPhoto(index) {
+    current = (index + photos.length) % photos.length;
+
+    main.style.opacity = "0";
+
+    setTimeout(() => {
+      main.src = photos[current];
+      main.onload = () => { main.style.opacity = "1"; };
+      main.onerror = () => { main.style.opacity = "1"; };
+    }, 160);
+
+    number.textContent =
+      String(current + 1).padStart(2, "0") + " / " +
+      String(photos.length).padStart(2, "0");
+
+    counter.textContent =
+      "MEMORY " + String(current + 1).padStart(2, "0") +
+      " — " + String(photos.length).padStart(2, "0");
+
+    thumbs.forEach((thumb, i) => {
+      thumb.classList.toggle("active", i === current);
+    });
+  }
+
+  document.getElementById("prevPhoto").onclick =
+    () => showPhoto(current - 1);
+
+  document.getElementById("nextPhoto").onclick =
+    () => showPhoto(current + 1);
+
+  thumbs.forEach((thumb, i) => {
+    thumb.onclick = () => showPhoto(i);
+  });
+})();
+</script>
+
+
+ </section>
+
+ <!-- MUSIC -->
+ <section>
+  <div class="heading">
+   <h2>A little <span class="script">music</span> for you 🎵</h2>
+   <p>Choose a romantic song from your device to make this moment more personal.</p>
+  </div>
+  <div class="music-card">
+  <div class="music-icon">🎵</div>
+
+  <div class="music-info">
+    <h3>Our Love Song ❤️</h3>
+    <p id="musicStatus">Made with love, just for you</p>
+
+    <div class="music-bars">
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <button id="musicBtn" class="music-btn"
+          aria-label="Play music">▶</button>
+
+  <audio id="loveAudio" loop>
+    <source src="https://www.image2url.com/r2/default/audio/1791900034305-5c70785d-6e4c-4d93-b266-a87ec7b5aef1.mp3" type="audio/mpeg">" type="audio/mpeg">
+  </audio>
+</div>
+
+<style>
+.music-card {
+  width: min(340px, 90%);
+  margin: 25px auto;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255,105,180,.6);
+  border-radius: 22px;
+  background: linear-gradient(135deg,
+    rgba(45,15,55,.95),
+    rgba(100,20,75,.85));
+  box-shadow: 0 0 25px rgba(255,20,147,.25);
+  color: white;
+  font-family: Arial, sans-serif;
+  backdrop-filter: blur(12px);
+}
+
+.music-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#ff4da6,#a855f7);
+  font-size: 26px;
+  box-shadow: 0 0 18px #ff4da655;
+}
+
+.music-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.music-info h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  color: #ffd5ec;
+}
+
+.music-info p {
+  margin: 0;
+  font-size: 11px;
+  color: #e8c6e8;
+}
+
+.music-btn {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: #ff4da6;
+  color: white;
+  font-size: 19px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ff4da666;
+  transition: .25s;
+}
+
+.music-btn:hover {
+  transform: scale(1.1);
+  background: #ff78bd;
+}
+
+.music-bars {
+  height: 19px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 9px;
+}
+
+.music-bars span {
+  width: 3px;
+  height: 5px;
+  border-radius: 5px;
+  background: #ff72bd;
+}
+
+.music-card.playing .music-bars span {
+  animation: musicWave .65s ease-in-out infinite alternate;
+}
+
+.music-bars span:nth-child(3n) {
+  animation-delay: .2s !important;
+}
+.music-bars span:nth-child(2n) {
+  animation-delay: .4s !important;
+}
+
+@keyframes musicWave {
+  from { height: 4px; }
+  to { height: 19px; }
+}
+</style>
+
+<script>
+const audio = document.getElementById("loveAudio");
+const btn = document.getElementById("musicBtn");
+const statusText = document.getElementById("musicStatus");
+const card = document.querySelector(".music-card");
+
+btn.addEventListener("click", async () => {
+  if (audio.paused) {
+    try {
+      await audio.play();
+      btn.textContent = "❚❚";
+      btn.setAttribute("aria-label", "Pause music");
+      statusText.textContent = "Playing our love song 💕";
+      card.classList.add("playing");
+    } catch (error) {
+      statusText.textContent = "Please check your music file 🎵";
+    }
+  } else {
+    audio.pause();
+    btn.textContent = "▶";
+    btn.setAttribute("aria-label", "Play music");
+    statusText.textContent = "Paused for a moment 💗";
+    card.classList.remove("playing");
+  }
+});
+
+audio.addEventListener("ended", () => {
+  btn.textContent = "▶";
+  card.classList.remove("playing");
+});
+</script>
+ </section>
+
+ <!-- FINAL MESSAGE -->
+ <section id="final">
+  <div class="heading">
+   <h2>Before you go... <span class="script">one last thing</span></h2>
+  </div>
+  <div class="card letter">
+   <div class="big">💖</div>
+   <h2 class="script">You are a beautiful part of this world.</h2>
+   <p>
+    I hope this birthday is full of laughter, warmth, sweet surprises
+    and memories you'll always treasure.<br><br>
+    Never make yourself smaller to fit into someone else's expectations.
+    Keep growing, keep glowing, and keep believing in your dreams.<br><br>
+    Today is your reminder that your life is worth celebrating —
+    not just today, but every single day.
+   </p>
+   <div class="signature" id="finalSignature">Happy Birthday, my love! ❤️</div>
+   <div class="buttons">
+    <button class="btn primary" onclick="celebrate()">One Last Surprise 🎉</button>
+    <button class="btn" onclick="goTop()">Replay Our Universe ↻</button>
+   </div>
+  </div>
+ </section>
+
+ <footer>
+  <div style="font-size:27px">♡ ∞ ♡</div>
+  <strong id="footerLine">Made with love, just for you.</strong><br>
+  Some gifts aren't wrapped. They're made with love. ❤️
+ </footer>
+</div>
+
+<div id="toast" class="hidden" role="status"></div>
+
+<script>
+/* ===== PERSONALIZE YOUR WEBSITE HERE ===== */
+const HER_NAME = "My Princess";
+const YOUR_NAME = "Your Favourite Person";
+const SECRET_PASSWORD = "1011";
+
+/* ===== INITIAL SETUP ===== */
+document.getElementById("lockName").textContent = HER_NAME;
+document.getElementById("heroName").textContent = HER_NAME;
+document.getElementById("letterSignature").textContent = "With love, " + YOUR_NAME + " ❤️";
+document.getElementById("finalSignature").textContent = "Always cheering for you, " + YOUR_NAME + " 💗";
+document.getElementById("footerLine").textContent = "Made especially for " + HER_NAME + " ❤️";
+document.title = "Happy Birthday " + HER_NAME + " ❤️";
+
+const sky = document.getElementById("sky");
+for (let i = 0; i < 75; i++) {
+ const s = document.createElement("span");
+ s.className = "star";
+ s.textContent = Math.random() > .5 ? "✦" : "·";
+ s.style.left = Math.random() * 100 + "%";
+ s.style.top = Math.random() * 100 + "%";
+ s.style.fontSize = (Math.random() * 13 + 5) + "px";
+ s.style.animationDelay = Math.random() * 4 + "s";
+ sky.appendChild(s);
+}
+
+setInterval(() => {
+ const h = document.createElement("span");
+ h.className = "heart";
+ h.textContent = ["♡","♥","💕","✨"][Math.floor(Math.random()*4)];
+ h.style.left = Math.random()*100 + "%";
+ h.style.fontSize = (Math.random()*20+12)+"px";
+ h.style.color = Math.random() > .5 ? "#ff77b7" : "#c5a5ff";
+ h.style.animationDuration = (Math.random()*5+7)+"s";
+ sky.appendChild(h);
+ setTimeout(() => h.remove(), 12500);
+}, 650);
+
+/* ===== UNLOCK ===== */
+function unlock() {
+ const entered = document.getElementById("password").value;
+ if (entered.toLowerCase().trim() !== SECRET_PASSWORD.toLowerCase()) {
+  notify("Almost! Try your special secret word 💗");
+  return;
+ }
+ document.getElementById("lock").style.display = "none";
+ document.getElementById("main").style.display = "block";
+ window.scrollTo(0,0);
+ notify("Welcome to your little universe, " + HER_NAME + " ❤️");
+}
+document.getElementById("password").addEventListener("keydown", e => {
+ if (e.key === "Enter") unlock();
+});
+
+/* ===== NAVIGATION ===== */
+function go(id) {
+ document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+function goTop() {
+ window.scrollTo({top:0,behavior:"smooth"});
+ document.getElementById("main").style.display = "none";
+ document.getElementById("lock").style.display = "grid";
+ document.getElementById("password").value = "";
+}
+
+/* ===== NOTIFICATIONS ===== */
+let toastTimer;
+function notify(message) {
+ const el = document.getElementById("toast");
+ el.textContent = message;
+ el.classList.remove("hidden");
+ clearTimeout(toastTimer);
+ toastTimer = setTimeout(() => el.classList.add("hidden"), 3000);
+}
+
+/* ===== CELEBRATION ===== */
+function celebrate() {
+ const pieces = ["💖","✨","🎉","💕","🌸","🎊","⭐","❤️"];
+ for (let i=0; i<90; i++) {
+  const c = document.createElement("span");
+  c.className = "confetti";
+  c.textContent = pieces[Math.floor(Math.random()*pieces.length)];
+  c.style.left = Math.random()*100+"vw";
+  c.style.fontSize = (Math.random()*18+10)+"px";
+  c.style.animationDuration = (Math.random()*2+2)+"s";
+  c.style.animationDelay = Math.random()+"s";
+  document.body.appendChild(c);
+  setTimeout(() => c.remove(), 6000);
+ }
+ notify("The whole universe is celebrating you! 🎂💖");
+}
+
+/* ===== THREE GIFTS ===== */
+const gifts = {
+  1: {
+   emoji:"💌",
+   title:"A secret from my heart",
+   message:"You deserve a love that feels safe, a life that feels meaningful, and happiness that doesn't depend on pretending to be someone else. Never forget how precious you are. ❤️"
+  },
+  2: {
+   emoji:"🌠",
+   title:"A wish for your future",
+   message:"May every brave dream you have find its way into your life. May you discover beautiful places, meet kind people, grow stronger, and feel proud of the person you are becoming. ✨"
+  },
+  3: {
+   emoji:"🧸",
+   title:"Your virtual hug",
+   message:"Imagine the biggest, warmest hug ever! Take a deep breath, relax your shoulders, and remember that you deserve rest, kindness, laughter and lovely little moments. 🫂💕"
+  }
+};
+
+function openGift(n) {
+ const g = gifts[n];
+ document.getElementById("giftEmoji").textContent = g.emoji;
+ document.getElementById("giftTitle").textContent = g.title;
+ document.getElementById("giftMessage").textContent = g.message;
+ document.getElementById("giftReveal").classList.remove("hidden");
+ celebrate();
+ document.getElementById("giftReveal").scrollIntoView({behavior:"smooth",block:"center"});
+}
+function closeGift() {
+ document.getElementById("giftReveal").classList.add("hidden");
+}
+
+/* ===== LOCAL PHOTO PREVIEWS ===== */
+const photoURLs = [];
+function previewPhoto(input, index) {
+ if (!input.files || !input.files[0]) return;
+ const file = input.files[0];
+ if (!file.type.startsWith("image/")) {
+  notify("Please choose an image file.");
+  return;
+ }
+ if (photoURLs[index]) URL.revokeObjectURL(photoURLs[index]);
+ const url = URL.createObjectURL(file);
+ photoURLs[index] = url;
+ const box = input.closest(".photo");
+ box.innerHTML = "";
+ const img = document.createElement("img");
+ img.src = url;
+ img.alt = "Your selected memory";
+ box.appendChild(img);
+}
+
+/* ===== CAKE CUTTING ===== */
+function cutCake() {
+ document.getElementById("cakeEmoji").textContent = "🍰";
+ document.getElementById("cakeMessage").classList.remove("hidden");
+ celebrate();
+}
+
+/* ===== OPTIONAL LOCAL MUSIC ===== */
+let songURL = null;
+document.getElementById("songFile").addEventListener("change", function() {
+ if (!this.files || !this.files[0]) return;
+ if (songURL) URL.revokeObjectURL(songURL);
+ songURL = URL.createObjectURL(this.files[0]);
+ const player = document.getElementById("player");
+ player.src = songURL;
+ player.load();
+ notify("Your song is ready! Press play 🎵");
+});
+</script>
+</body>
+</html>
